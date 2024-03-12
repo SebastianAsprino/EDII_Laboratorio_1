@@ -1,5 +1,5 @@
 ## Definición del módulo Nodo
-class Nodo:
+class nodo:
     """Esta clase crea el nodo el cual es una hoja o rama
         del arbol.
     """
