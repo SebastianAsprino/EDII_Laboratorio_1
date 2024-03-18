@@ -12,12 +12,13 @@ class nodo:
     izquierda: Referencia al hijo izquierdo del nodo.
     derecha: Referencia al hijo derecho del nodo.
   """
-  def __init__(self, ruta, id_hash):
+  def __init__(self, nombre, ruta, id_hash):
     """
     Parámetros:
       ruta: La ruta del archivo en data.
       hash: El hash del archivo.
       """
+    self.nombre = nombre
     self.ruta = ruta
     self.id_hash = id_hash
     self.altura = 1
