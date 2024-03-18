@@ -24,3 +24,13 @@ class arbol:
     if nodo is None:
       return 0
     return nodo.altura
+  
+  def balance(self, nodo):
+    """
+    Metodo que revisa el balance del subarbol de cada nodo.
+    """
+    if nodo is None:
+        return 0
+    return self.altura(nodo.izquierda) - self.altura(nodo.derecha)
+  
+
