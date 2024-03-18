@@ -49,16 +49,31 @@ class arbol:
 
   def rotacion_derecha(self, z):
     y = z.izquierda
-    T3 = y.derecha
+    x = y.derecha
 
     y.derecha = z
-    z.izquierda = T3
+    z.izquierda = x
 
     z.altura = 1 + max(self.altura(z.izquierda), self.altura(z.derecha))
     y.altura = 1 + max(self.altura(y.izquierda), self.altura(y.derecha))
 
     return y
 
+
+
+
+  def rotacion_izquierda(self, z):
+    y = z.derecha
+    x = y.izquierda
+
+    y.izquierda = z
+    z.derecha = x
+
+    z.altura = 1 + max(self.altura(z.izquierda), self.altura(z.derecha))
+    y.altura = 1 + max(self.altura(y.izquierda), self.altura(y.derecha))
+
+    return y
+  
 
 
 
