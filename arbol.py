@@ -1,3 +1,5 @@
+from nodo import nodo
+
 ## Definición del módulo arbol
 class arbol:
   """
@@ -33,4 +35,35 @@ class arbol:
         return 0
     return self.altura(nodo.izquierda) - self.altura(nodo.derecha)
   
+  def insertar(self, raiz, ruta, hash_id):
+    """
 
+    """
+    if raiz is None:
+      return nodo(ruta, hash_id)
+    elif hash_id < raiz.id_hash:
+      raiz.izquierda = self.insertar(raiz.izquierda, hash_id)
+    elif hash_id > raiz.id_hash:
+      raiz.derecha = self.insertar(raiz.derecha, hash_id)
+    else:
+      return raiz
+
+    raiz.altura = 1 + max(self.altura(raiz.izquierda), self.altura(raiz.derecha))
+
+    balance = self.balance(raiz)
+
+    if balance > 1 and hash_id < raiz.izquierda.valor:
+      return self.rotacion_derecha(raiz)
+    
+    if balance < -1 and hash_id > raiz.derecha.valor:
+      return self.rotacion_izquierda(raiz)
+    
+    if balance > 1 and hash_id > raiz.izquierda.valor:
+      raiz.izquierda = self.rotacion_izquierda(raiz.izquierda)
+      return self.rotacion_derecha(raiz)
+    
+    if balance < -1 and hash_id < raiz.derecha.valor:
+      raiz.derecha = self.rotacion_derecha(raiz.derecha)
+      return self.rotacion_izquierda(raiz)
+
+    return raiz
