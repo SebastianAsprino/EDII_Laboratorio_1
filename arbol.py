@@ -77,16 +77,17 @@ class arbol:
 
 
 
-  def insertar(self, raiz, ruta, hash_id):
+  def insertar(self, raiz, hash_id, ruta):
     """
 
     """
     if raiz is None:
+      # ruta = "test"
       return nodo(ruta, hash_id)
     elif hash_id < raiz.id_hash:
-      raiz.izquierda = self.insertar(raiz.izquierda, hash_id)
+      raiz.izquierda = self.insertar(raiz.izquierda, hash_id, ruta)
     elif hash_id > raiz.id_hash:
-      raiz.derecha = self.insertar(raiz.derecha, hash_id)
+      raiz.derecha = self.insertar(raiz.derecha, hash_id, ruta)
     else:
       return raiz
 
