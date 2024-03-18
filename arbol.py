@@ -77,17 +77,17 @@ class arbol:
 
 
 
-  def insertar(self, raiz, hash_id, ruta):
+  def insertar(self, raiz, nombre, ruta, hash_id):
     """
 
     """
     if raiz is None:
       # ruta = "test"
-      return nodo(ruta, hash_id)
-    elif hash_id < raiz.id_hash:
-      raiz.izquierda = self.insertar(raiz.izquierda, hash_id, ruta)
-    elif hash_id > raiz.id_hash:
-      raiz.derecha = self.insertar(raiz.derecha, hash_id, ruta)
+      return nodo( nombre, ruta, hash_id)
+    elif nombre < raiz.nombre:
+      raiz.izquierda = self.insertar(raiz.izquierda, nombre, ruta, hash_id)
+    elif nombre > raiz.nombre:
+      raiz.derecha = self.insertar(raiz.derecha, nombre, ruta, hash_id)
     else:
       return raiz
 
@@ -95,17 +95,17 @@ class arbol:
 
     balance = self.balance(raiz)
 
-    if balance > 1 and hash_id < raiz.izquierda.valor:
+    if balance > 1 and nombre < raiz.izquierda.nombre:
       return self.rotacion_derecha(raiz)
     
-    if balance < -1 and hash_id > raiz.derecha.valor:
+    if balance < -1 and nombre > raiz.derecha.nombre:
       return self.rotacion_izquierda(raiz)
     
-    if balance > 1 and hash_id > raiz.izquierda.valor:
+    if balance > 1 and nombre > raiz.izquierda.nombre:
       raiz.izquierda = self.rotacion_izquierda(raiz.izquierda)
       return self.rotacion_derecha(raiz)
     
-    if balance < -1 and hash_id < raiz.derecha.valor:
+    if balance < -1 and nombre < raiz.derecha.nombre:
       raiz.derecha = self.rotacion_derecha(raiz.derecha)
       return self.rotacion_izquierda(raiz)
 
