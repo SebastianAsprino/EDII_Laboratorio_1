@@ -18,6 +18,9 @@ class arbol:
     self.raiz = None
 
   def altura(self, nodo):
+    """
+    Metodo el cual retorna 0 si estamos en una hoja, sino retorna la altura del nodo.
+    """
     if nodo is None:
       return 0
     return nodo.altura
