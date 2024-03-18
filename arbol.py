@@ -10,5 +10,8 @@ class arbol:
   """
   def __init__(self):
     """
+    Este metodo inicia el arbol AVL.
+    Atributo:
+      raiz: el nodo inicial del arbol es un objeto del tipo nodo.
     """
     self.raiz = None
