@@ -10,7 +10,10 @@ class arbol:
 
   Atributos:
   """
-  
+
+
+
+
   def __init__(self):
     """
     Este metodo inicia el arbol AVL.
@@ -19,6 +22,9 @@ class arbol:
     """
     self.raiz = None
 
+
+
+
   def altura(self, nodo):
     """
     Metodo el cual retorna 0 si estamos en una hoja, sino retorna la altura del nodo.
@@ -26,7 +32,10 @@ class arbol:
     if nodo is None:
       return 0
     return nodo.altura
-  
+
+
+
+
   def balance(self, nodo):
     """
     Metodo que revisa el balance del subarbol de cada nodo.
@@ -34,7 +43,25 @@ class arbol:
     if nodo is None:
         return 0
     return self.altura(nodo.izquierda) - self.altura(nodo.derecha)
-  
+
+
+
+
+  def rotacion_derecha(self, z):
+    y = z.izquierda
+    T3 = y.derecha
+
+    y.derecha = z
+    z.izquierda = T3
+
+    z.altura = 1 + max(self.altura(z.izquierda), self.altura(z.derecha))
+    y.altura = 1 + max(self.altura(y.izquierda), self.altura(y.derecha))
+
+    return y
+
+
+
+
   def insertar(self, raiz, ruta, hash_id):
     """
 
