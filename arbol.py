@@ -151,6 +151,8 @@ class arbol:
 
       temp = self.min_valor_nodo(raiz.derecha)
       raiz.nombre = temp.nombre
+      raiz.ruta = temp.ruta
+      raiz.id_hash = temp.id_hash
       raiz.derecha = self.eliminar(raiz.derecha, temp.nombre)
 
     if raiz is None:

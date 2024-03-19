@@ -36,12 +36,12 @@ if __name__ == "__main__":
   ruta_human = os.path.join("data", "human")
 
   agregar_imagenes_al_arbol(ruta_bike)
-  agregar_imagenes_al_arbol(ruta_cars)
-  agregar_imagenes_al_arbol(ruta_cats)
-  agregar_imagenes_al_arbol(ruta_dogs)
-  agregar_imagenes_al_arbol(ruta_flowers)
-  agregar_imagenes_al_arbol(ruta_horses)
-  agregar_imagenes_al_arbol(ruta_human)
+  # agregar_imagenes_al_arbol(ruta_cars)
+  # agregar_imagenes_al_arbol(ruta_cats)
+  # agregar_imagenes_al_arbol(ruta_dogs)
+  # agregar_imagenes_al_arbol(ruta_flowers)
+  # agregar_imagenes_al_arbol(ruta_horses)
+  # agregar_imagenes_al_arbol(ruta_human)
 
 
 
@@ -52,3 +52,12 @@ if __name__ == "__main__":
   print(mi_arbol.raiz.altura)
   print(mi_arbol.raiz.izquierda)
   print(mi_arbol.raiz.derecha)
+  mi_arbol.eliminar(mi_arbol.raiz,"bike_128.bmp")
+  print(mi_arbol.raiz)
+  print(mi_arbol.raiz.nombre)
+  print(mi_arbol.raiz.ruta)
+  print(mi_arbol.raiz.id_hash)
+  print(mi_arbol.raiz.altura)
+  print(mi_arbol.raiz.izquierda)
+  print(mi_arbol.raiz.derecha)
+
