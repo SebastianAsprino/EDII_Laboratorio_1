@@ -123,3 +123,67 @@ class arbol:
       return self.rotacion_izquierda(raiz)
 
     return raiz
+
+
+
+
+  def eliminar(self, raiz, nombre):
+
+    if raiz is None:
+      return raiz
+
+    if nombre < raiz.nombre:
+      raiz.izquierda = self.eliminar(raiz.izquierda, nombre)
+
+    elif nombre > raiz.nombre:
+      raiz.derecha = self.eliminar(raiz.derecha, nombre)
+
+    else:
+      if raiz.izquierda is None:
+        temp = raiz.derecha
+        raiz = None
+        return temp
+      
+      elif raiz.derecha is None:
+        temp = raiz.izquierda
+        raiz = None
+        return temp
+
+      temp = self.min_valor_nodo(raiz.derecha)
+      raiz.nombre = temp.nombre
+      raiz.derecha = self.eliminar(raiz.derecha, temp.nombre)
+
+    if raiz is None:
+      return raiz
+
+    raiz.altura = 1 + max(self.altura(raiz.izquierda), self.altura(raiz.derecha))
+    balance = self.balance(raiz)
+
+    if balance > 1 and self.balance(raiz.izquierda) >= 0:
+      return self.rotacion_derecha(raiz)
+
+    if balance < -1 and self.balance(raiz.derecha) <= 0:
+      return self.rotacion_izquierda(raiz)
+
+    if balance > 1 and self.balance(raiz.izquierda) < 0:
+      raiz.izquierda = self.rotacion_izquierda(raiz.izquierda)
+      return self.rotacion_derecha(raiz)
+
+    if balance < -1 and self.balance(raiz.derecha) > 0:
+      raiz.derecha = self.rotacion_derecha(raiz.derecha)
+      return self.rotacion_izquierda(raiz)
+
+    return raiz
+
+
+
+
+  def min_valor_nodo(self, nodo):
+        """
+        Metodo que busca el nodo minimo para el
+        proceso de eliminacion.
+        """
+        actual = nodo
+        while actual.izquierda is not None:
+            actual = actual.izquierda
+        return actual
