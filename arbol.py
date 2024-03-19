@@ -212,3 +212,24 @@ class arbol:
     else:
         return self.buscar_por_nombre(raiz.derecha, nombre)
 
+
+
+
+  def buscar_por_tipo(self, raiz, tipo):
+    """
+    Método que busca todos los nodos que pertenecen a una categoría (type) específica en el árbol AVL.
+
+    Args:
+    - raiz: Nodo raíz del arbol.
+    - tipo: Categoría específica que se desea buscar.
+
+    Returns:
+    - Lista de nodos que pertenecen a la categoría específica. Si no se encuentra ninguno, retorna una lista vacía.
+    """
+    nodos_encontrados = []
+    if raiz is not None:
+        if raiz.ruta.startswith("data\\" + tipo + "\\"):
+            nodos_encontrados.append(raiz)
+        nodos_encontrados.extend(self.buscar_por_tipo(raiz.izquierda, tipo))
+        nodos_encontrados.extend(self.buscar_por_tipo(raiz.derecha, tipo))
+    return nodos_encontrados

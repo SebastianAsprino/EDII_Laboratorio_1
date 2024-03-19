@@ -62,3 +62,15 @@ if __name__ == "__main__":
   # print(mi_arbol.raiz.derecha)
   mi_arbol.buscar_por_nombre(mi_arbol.raiz, "bike_128.bmp") #recordar que lo acabo de eliminar.
   mi_arbol.buscar_por_nombre(mi_arbol.raiz, "bike_020.bmp")
+
+
+  tipo_a_buscar = "bike"
+  nodos_encontrados = mi_arbol.buscar_por_tipo(mi_arbol.raiz, tipo_a_buscar)
+
+  if nodos_encontrados:
+    print(f"Se encontraron nodos de tipo '{tipo_a_buscar}':")
+    for nodo in nodos_encontrados:
+        print(f"- Nombre: {nodo.nombre}, Ruta: {nodo.ruta}, Hash: {nodo.id_hash}")
+  else:
+    print(f"No se encontraron nodos de tipo '{tipo_a_buscar}'.")
+
