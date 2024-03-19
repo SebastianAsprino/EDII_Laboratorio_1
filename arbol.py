@@ -48,6 +48,9 @@ class arbol:
 
 
   def rotacion_derecha(self, z):
+    """
+    Metodo que hace la rotaciona a la derecha.
+    """
     y = z.izquierda
     x = y.derecha
 
@@ -63,6 +66,9 @@ class arbol:
 
 
   def rotacion_izquierda(self, z):
+    """
+    Metodo que hace la rotaciona a la izquierda.
+    """
     y = z.derecha
     x = y.izquierda
 
@@ -73,16 +79,23 @@ class arbol:
     y.altura = 1 + max(self.altura(y.izquierda), self.altura(y.derecha))
 
     return y
-  
+
 
 
 
   def insertar(self, raiz, nombre, ruta, hash_id):
     """
+    Metodo que permite ingresar un nodo al arbol y valancearlo.
 
+    Atributos:
+      raiz: El objeto nodo (o hoja del arbol).
+      nombre: El atributo que seusa para balancear el arbol.
+      ruta: la ubicacion del archivo en la carpeta data.
+      hash_id: el hash MD5 de cada archivo (pensaba usarlo
+              para eliminar las imagenes que se repiten con
+              nombre de archivo diferente, pero me dio flojera).
     """
     if raiz is None:
-      # ruta = "test"
       return nodo( nombre, ruta, hash_id)
     elif nombre < raiz.nombre:
       raiz.izquierda = self.insertar(raiz.izquierda, nombre, ruta, hash_id)
