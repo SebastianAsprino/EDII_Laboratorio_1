@@ -6,6 +6,7 @@ class nodo:
   Esta clase crea el nodo que representa una hoja o rama del árbol.
 
   Atributos:
+    nombre: El nombre del archivo usado para determinar si un archivo es mayor o menor.
     hash: El hash almacena el md5 del archivo.
     ruta: La ruta del archivo.
     altura: La altura del nodo en el arbol.
