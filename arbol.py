@@ -189,3 +189,26 @@ class arbol:
         while actual.izquierda is not None:
             actual = actual.izquierda
         return actual
+
+
+
+
+  def buscar_por_nombre(self, raiz, nombre):
+    """
+    Método que busca un nodo por su nombre en el árbol AVL.
+
+    Args:
+    - raiz: Nodo raíz del arbol actual.
+    - nombre: Nombre del nodo a buscar.
+    """
+    if raiz is None:
+        print("El nodo no existe")
+        return None
+    elif nombre == raiz.nombre:
+        print(f"El nodo {nombre} con ruta en data: {raiz.ruta} y hash {raiz.id_hash} se encuentra.")
+        return raiz
+    elif nombre < raiz.nombre:
+        return self.buscar_por_nombre(raiz.izquierda, nombre)
+    else:
+        return self.buscar_por_nombre(raiz.derecha, nombre)
+

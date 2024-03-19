@@ -45,19 +45,20 @@ if __name__ == "__main__":
 
 
 
-  print(mi_arbol.raiz)
+  # print(mi_arbol.raiz)
   print(mi_arbol.raiz.nombre)
   print(mi_arbol.raiz.ruta)
   print(mi_arbol.raiz.id_hash)
   print(mi_arbol.raiz.altura)
-  print(mi_arbol.raiz.izquierda)
-  print(mi_arbol.raiz.derecha)
+  # print(mi_arbol.raiz.izquierda)
+  # print(mi_arbol.raiz.derecha)
   mi_arbol.eliminar(mi_arbol.raiz,"bike_128.bmp")
-  print(mi_arbol.raiz)
+  # print(mi_arbol.raiz)
   print(mi_arbol.raiz.nombre)
   print(mi_arbol.raiz.ruta)
   print(mi_arbol.raiz.id_hash)
   print(mi_arbol.raiz.altura)
-  print(mi_arbol.raiz.izquierda)
-  print(mi_arbol.raiz.derecha)
-
+  # print(mi_arbol.raiz.izquierda)
+  # print(mi_arbol.raiz.derecha)
+  mi_arbol.buscar_por_nombre(mi_arbol.raiz, "bike_128.bmp") #recordar que lo acabo de eliminar.
+  mi_arbol.buscar_por_nombre(mi_arbol.raiz, "bike_020.bmp")
