@@ -15,6 +15,7 @@ class nodo:
   def __init__(self, nombre, ruta, id_hash):
     """
     Parámetros:
+      nombre: El nombre del archivo.
       ruta: La ruta del archivo en data.
       hash: El hash del archivo.
       """
