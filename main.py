@@ -1,6 +1,7 @@
 import os
 from arbol import arbol
 from hash import generar_hash_archivo
+from size import tamano_archivo
 
 
 
@@ -16,7 +17,8 @@ if __name__ == "__main__":
         ruta_archivo = os.path.join(directorio, nombre_archivo)
         if os.path.isfile(ruta_archivo):
             md5 = generar_hash_archivo(ruta_archivo)
-            mi_arbol.raiz = mi_arbol.insertar(mi_arbol.raiz, nombre_archivo, ruta_archivo, md5)
+            size = tamano_archivo(ruta_archivo)
+            mi_arbol.raiz = mi_arbol.insertar(mi_arbol.raiz, nombre_archivo, ruta_archivo, md5, size)
 
 
 
@@ -50,6 +52,7 @@ if __name__ == "__main__":
   print(mi_arbol.raiz.ruta)
   print(mi_arbol.raiz.id_hash)
   print(mi_arbol.raiz.altura)
+  print(mi_arbol.raiz.size)
   # print(mi_arbol.raiz.izquierda)
   # print(mi_arbol.raiz.derecha)
   mi_arbol.eliminar(mi_arbol.raiz,"bike_128.bmp")
@@ -70,7 +73,16 @@ if __name__ == "__main__":
   if nodos_encontrados:
     print(f"Se encontraron nodos de tipo '{tipo_a_buscar}':")
     for nodo in nodos_encontrados:
-        print(f"- Nombre: {nodo.nombre}, Ruta: {nodo.ruta}, Hash: {nodo.id_hash}")
+        print(f"- Nombre: {nodo.nombre}, Ruta: {nodo.ruta}, Hash: {nodo.id_hash}, size: {nodo.size}")
   else:
     print(f"No se encontraron nodos de tipo '{tipo_a_buscar}'.")
 
+
+  nodos_encontrados = mi_arbol.buscar_por_tipo_y_peso(mi_arbol.raiz, tipo_a_buscar, 0, 90000)
+
+  if nodos_encontrados:
+    print(f"Se encontraron nodos de tipo '{tipo_a_buscar}':")
+    for nodo in nodos_encontrados:
+        print(f"- Nombre: {nodo.nombre}, Ruta: {nodo.ruta}, Hash: {nodo.id_hash}, size: {nodo.size}")
+  else:
+    print(f"No se encontraron nodos de tipo '{tipo_a_buscar}' y de tamaño {nodo.size} Bytes.")

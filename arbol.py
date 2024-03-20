@@ -83,7 +83,7 @@ class arbol:
 
 
 
-  def insertar(self, raiz, nombre, ruta, hash_id):
+  def insertar(self, raiz, nombre, ruta, hash_id, size):
     """
     Metodo que permite ingresar un nodo al arbol y valancearlo.
 
@@ -96,11 +96,11 @@ class arbol:
               nombre de archivo diferente, pero me dio flojera).
     """
     if raiz is None:
-      return nodo( nombre, ruta, hash_id)
+      return nodo( nombre, ruta, hash_id, size)
     elif nombre < raiz.nombre:
-      raiz.izquierda = self.insertar(raiz.izquierda, nombre, ruta, hash_id)
+      raiz.izquierda = self.insertar(raiz.izquierda, nombre, ruta, hash_id, size)
     elif nombre > raiz.nombre:
-      raiz.derecha = self.insertar(raiz.derecha, nombre, ruta, hash_id)
+      raiz.derecha = self.insertar(raiz.derecha, nombre, ruta, hash_id, size)
     else:
       return raiz
 
@@ -153,6 +153,7 @@ class arbol:
       raiz.nombre = temp.nombre
       raiz.ruta = temp.ruta
       raiz.id_hash = temp.id_hash
+      raiz.size = temp.size
       raiz.derecha = self.eliminar(raiz.derecha, temp.nombre)
 
     if raiz is None:
@@ -232,4 +233,17 @@ class arbol:
             nodos_encontrados.append(raiz)
         nodos_encontrados.extend(self.buscar_por_tipo(raiz.izquierda, tipo))
         nodos_encontrados.extend(self.buscar_por_tipo(raiz.derecha, tipo))
+    return nodos_encontrados
+
+
+
+
+  def buscar_por_tipo_y_peso(self, raiz, tipo, min_size, max_size):
+  
+    nodos_encontrados = []
+    if raiz is not None:
+        if raiz.ruta.startswith("data\\" + tipo + "\\") and min_size <= raiz.size < max_size:
+            nodos_encontrados.append(raiz)
+        nodos_encontrados.extend(self.buscar_por_tipo_y_peso(raiz.izquierda, tipo, min_size, max_size))
+        nodos_encontrados.extend(self.buscar_por_tipo_y_peso(raiz.derecha, tipo, min_size, max_size))
     return nodos_encontrados
