@@ -300,8 +300,33 @@ class arbol:
     nivel_derecha = self.encontrar_nivel_del_nodo(raiz.derecha, nombre, nivel_actual + 1)
     return nivel_derecha
 
-# Ejemplo de uso:
-# Supongamos que tienes un objeto arbol llamado 'mi_arbol'.
-# Puedes llamar al método encontrar_nivel_por_nombre pasando la raíz del árbol y el nombre del nodo como argumentos.
-# Por ejemplo:
-# nivel = mi_arbol.encontrar_nivel_por_nombre(mi_arbol.raiz, "nombre_del_nodo")
+  def buscar_nodo(self, raiz, nombre):
+
+    if raiz is None:
+        print("El nodo no existe")
+        return None
+    elif nombre == raiz.nombre:
+        return raiz
+    elif nombre < raiz.nombre:
+        return self.buscar_nodo(raiz.izquierda, nombre)
+    else:
+        return self.buscar_nodo(raiz.derecha, nombre)
+
+
+
+  def factor_balanceo(self, nodo):
+
+    if nodo is None:
+      return 0
+    altura_izquierda = self.altura(nodo.izquierda)
+    altura_derecha = self.altura(nodo.derecha)
+    return print(f"el factor de equilobrio del nodo es: {altura_izquierda - altura_derecha}")
+    
+    
+    
+  def obtener_factor_balanceo(self, raiz, nombre):
+    nodo = self.buscar_nodo(raiz, nombre)
+    if nodo is not None:
+      return self.factor_balanceo(nodo)
+    else:
+        return None

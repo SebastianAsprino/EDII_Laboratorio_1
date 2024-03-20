@@ -60,11 +60,11 @@ if __name__ == "__main__":
   # print(mi_arbol.raiz.altura)
   # print(mi_arbol.raiz.izquierda)
   # print(mi_arbol.raiz.derecha)
-  mi_arbol.buscar_por_nombre(mi_arbol.raiz, "bike_128.bmp") #recordar que lo acabo de eliminar.
-  mi_arbol.buscar_por_nombre(mi_arbol.raiz, "bike_020.bmp")
+  # mi_arbol.buscar_por_nombre(mi_arbol.raiz, "bike_128.bmp") #recordar que lo acabo de eliminar.
+  # mi_arbol.buscar_por_nombre(mi_arbol.raiz, "bike_020.bmp")
 
 
-  tipo_a_buscar = "bike"
+  # tipo_a_buscar = "bike"
   # nodos_encontrados = mi_arbol.buscar_por_tipo(mi_arbol.raiz, tipo_a_buscar)
 
   # if nodos_encontrados:
@@ -90,10 +90,14 @@ if __name__ == "__main__":
 
 
 
-  mi_arbol.recorrido_por_niveles(mi_arbol.raiz)
+  # mi_arbol.recorrido_por_niveles(mi_arbol.raiz)
 
 
 
 
-  mi_arbol.encontrar_nivel_del_nodo(mi_arbol.raiz, "bike_064.bmp")
-  mi_arbol.encontrar_nivel_del_nodo(mi_arbol.raiz, "bike_008.bmp")
+  # mi_arbol.encontrar_nivel_del_nodo(mi_arbol.raiz, "bike_064.bmp")
+  # mi_arbol.encontrar_nivel_del_nodo(mi_arbol.raiz, "bike_008.bmp")
+
+
+
+  mi_arbol.obtener_factor_balanceo(mi_arbol.raiz, "bike_128.bmp" )
