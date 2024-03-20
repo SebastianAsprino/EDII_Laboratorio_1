@@ -207,7 +207,7 @@ class arbol:
         print("El nodo no existe")
         return None
     elif nombre == raiz.nombre:
-        print(f"El nodo {nombre} con ruta en data: {raiz.ruta} y hash {raiz.id_hash} se encuentra.")
+        print(f"El nodo {nombre} con ruta en data: {raiz.ruta} y hash {raiz.id_hash} existe.")
         return raiz
     elif nombre < raiz.nombre:
         return self.buscar_por_nombre(raiz.izquierda, nombre)
@@ -278,3 +278,30 @@ class arbol:
     elif nivel > 1:
       self.imprimir_nivel(raiz.izquierda, nivel - 1)
       self.imprimir_nivel(raiz.derecha, nivel - 1)
+
+
+
+
+
+  def encontrar_nivel_del_nodo(self, raiz, nombre, nivel_actual=0):
+    """
+    Encuentra el nivel de un nodo dado su nombre en el arbol.
+    """
+    if raiz is None:
+      return None
+        
+    if raiz.nombre == nombre:
+      return print(f"el nivel es: {nivel_actual}")
+        
+    nivel_izquierda = self.encontrar_nivel_del_nodo(raiz.izquierda, nombre, nivel_actual + 1)
+    if nivel_izquierda is not None:
+      return nivel_izquierda
+        
+    nivel_derecha = self.encontrar_nivel_del_nodo(raiz.derecha, nombre, nivel_actual + 1)
+    return nivel_derecha
+
+# Ejemplo de uso:
+# Supongamos que tienes un objeto arbol llamado 'mi_arbol'.
+# Puedes llamar al método encontrar_nivel_por_nombre pasando la raíz del árbol y el nombre del nodo como argumentos.
+# Por ejemplo:
+# nivel = mi_arbol.encontrar_nivel_por_nombre(mi_arbol.raiz, "nombre_del_nodo")

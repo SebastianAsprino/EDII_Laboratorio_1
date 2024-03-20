@@ -45,19 +45,19 @@ if __name__ == "__main__":
 
 
   # print(mi_arbol.raiz)
-  print(mi_arbol.raiz.nombre)
-  print(mi_arbol.raiz.ruta)
-  print(mi_arbol.raiz.id_hash)
-  print(mi_arbol.raiz.altura)
-  print(mi_arbol.raiz.size)
+  # print(mi_arbol.raiz.nombre)
+  # print(mi_arbol.raiz.ruta)
+  # print(mi_arbol.raiz.id_hash)
+  # print(mi_arbol.raiz.altura)
+  # print(mi_arbol.raiz.size)
   # print(mi_arbol.raiz.izquierda)
   # print(mi_arbol.raiz.derecha)
-  mi_arbol.eliminar(mi_arbol.raiz,"bike_128.bmp")
+  # mi_arbol.eliminar(mi_arbol.raiz,"bike_128.bmp")
   # print(mi_arbol.raiz)
-  print(mi_arbol.raiz.nombre)
-  print(mi_arbol.raiz.ruta)
-  print(mi_arbol.raiz.id_hash)
-  print(mi_arbol.raiz.altura)
+  # print(mi_arbol.raiz.nombre)
+  # print(mi_arbol.raiz.ruta)
+  # print(mi_arbol.raiz.id_hash)
+  # print(mi_arbol.raiz.altura)
   # print(mi_arbol.raiz.izquierda)
   # print(mi_arbol.raiz.derecha)
   mi_arbol.buscar_por_nombre(mi_arbol.raiz, "bike_128.bmp") #recordar que lo acabo de eliminar.
@@ -65,33 +65,35 @@ if __name__ == "__main__":
 
 
   tipo_a_buscar = "bike"
-  nodos_encontrados = mi_arbol.buscar_por_tipo(mi_arbol.raiz, tipo_a_buscar)
+  # nodos_encontrados = mi_arbol.buscar_por_tipo(mi_arbol.raiz, tipo_a_buscar)
 
-  if nodos_encontrados:
-    print(f"Se encontraron nodos de tipo '{tipo_a_buscar}':")
-    for nodo in nodos_encontrados:
-        print(f"- Nombre: {nodo.nombre}, Ruta: {nodo.ruta}, Hash: {nodo.id_hash}, size: {nodo.size}")
-  else:
-    print(f"No se encontraron nodos de tipo '{tipo_a_buscar}'.")
-
-
-  nodos_encontrados = mi_arbol.buscar_por_tipo_y_peso(mi_arbol.raiz, tipo_a_buscar, 0, 90000)
-
-  if nodos_encontrados:
-    print(f"Se encontraron nodos de tipo '{tipo_a_buscar}':")
-    for nodo in nodos_encontrados:
-        print(f"- Nombre: {nodo.nombre}, Ruta: {nodo.ruta}, Hash: {nodo.id_hash}, size: {nodo.size}")
-  else:
-    print(f"No se encontraron nodos de tipo '{tipo_a_buscar}' y de tamaño {nodo.size} Bytes.")
+  # if nodos_encontrados:
+  #   print(f"Se encontraron nodos de tipo '{tipo_a_buscar}':")
+  #   for nodo in nodos_encontrados:
+  #       print(f"- Nombre: {nodo.nombre}, Ruta: {nodo.ruta}, Hash: {nodo.id_hash}, size: {nodo.size}")
+  # else:
+  #   print(f"No se encontraron nodos de tipo '{tipo_a_buscar}'.")
 
 
+  # nodos_encontrados = mi_arbol.buscar_por_tipo_y_peso(mi_arbol.raiz, tipo_a_buscar, 0, 90000)
+
+  # if nodos_encontrados:
+  #   print(f"Se encontraron nodos de tipo '{tipo_a_buscar}':")
+  #   for nodo in nodos_encontrados:
+  #       print(f"- Nombre: {nodo.nombre}, Ruta: {nodo.ruta}, Hash: {nodo.id_hash}, size: {nodo.size}")
+  # else:
+  #   print(f"No se encontraron nodos de tipo '{tipo_a_buscar}' y de tamaño {nodo.size} Bytes.")
 
 
 
 
 
-    mi_arbol.recorrido_por_niveles(mi_arbol.raiz)
+
+
+  mi_arbol.recorrido_por_niveles(mi_arbol.raiz)
 
 
 
 
+  mi_arbol.encontrar_nivel_del_nodo(mi_arbol.raiz, "bike_064.bmp")
+  mi_arbol.encontrar_nivel_del_nodo(mi_arbol.raiz, "bike_008.bmp")
