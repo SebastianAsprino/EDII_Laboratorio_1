@@ -330,3 +330,25 @@ class arbol:
       return self.factor_balanceo(nodo)
     else:
         return None
+    
+
+
+
+
+
+
+  def encontrar_padre_por_nombre(self, raiz, nombre, padre=None):
+
+    if raiz is None:
+      return None
+        
+    if raiz.nombre == nombre:
+      if padre is not None:
+        print(f"El nodo padre de {nombre} es: {padre.nombre}")
+      else:
+        print(f"{nombre} es la raíz del árbol.")
+      return
+        
+    self.encontrar_padre_por_nombre(raiz.izquierda, nombre, raiz)
+        
+    self.encontrar_padre_por_nombre(raiz.derecha, nombre, raiz)
