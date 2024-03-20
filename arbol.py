@@ -1,3 +1,4 @@
+from collections import deque
 from nodo import nodo
 
 ## Definición del módulo arbol
@@ -223,9 +224,6 @@ class arbol:
     Args:
     - raiz: Nodo raíz del arbol.
     - tipo: Categoría específica que se desea buscar.
-
-    Returns:
-    - Lista de nodos que pertenecen a la categoría específica. Si no se encuentra ninguno, retorna una lista vacía.
     """
     nodos_encontrados = []
     if raiz is not None:
@@ -239,6 +237,8 @@ class arbol:
 
 
   def buscar_por_tipo_y_peso(self, raiz, tipo, min_size, max_size):
+    """
+    """
   
     nodos_encontrados = []
     if raiz is not None:
@@ -247,3 +247,34 @@ class arbol:
         nodos_encontrados.extend(self.buscar_por_tipo_y_peso(raiz.izquierda, tipo, min_size, max_size))
         nodos_encontrados.extend(self.buscar_por_tipo_y_peso(raiz.derecha, tipo, min_size, max_size))
     return nodos_encontrados
+
+
+
+
+  def recorrido_por_niveles(self, raiz):
+    """
+    Muestra el recorrido por niveles del árbol de la unica forma que lo se hacer osea recursivo.
+
+    Args:
+      - raiz: Nodo raíz del árbol.
+    """
+    altura = self.altura(raiz)
+    for nivel in range(1, altura + 1):
+      print(f"nivel: {nivel-1}")
+      self.imprimir_nivel(raiz, nivel)
+
+  def imprimir_nivel(self, raiz, nivel):
+    """
+    Imprime los nodos de un nivel específico del árbol.
+
+    Args:
+      - raiz: Nodo raíz del árbol.
+      - nivel: Nivel del árbol que se quiere imprimir.
+    """
+    if raiz is None:
+      return
+    if nivel == 1:
+      print(raiz.nombre)
+    elif nivel > 1:
+      self.imprimir_nivel(raiz.izquierda, nivel - 1)
+      self.imprimir_nivel(raiz.derecha, nivel - 1)

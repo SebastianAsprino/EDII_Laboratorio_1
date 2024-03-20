@@ -24,10 +24,7 @@ if __name__ == "__main__":
 
 
   mi_arbol = arbol()
-  # mi_arbol.raiz = mi_arbol.insertar(mi_arbol.raiz, "archivo101.bpm", "/unaruta", 1)
-  # mi_arbol.raiz = mi_arbol.insertar(mi_arbol.raiz, "archivo100.bpm", "/unaruta", 2)
-  # mi_arbol.raiz = mi_arbol.insertar(mi_arbol.raiz, "archivo102.bpm", "/unaruta", 3)
-  # mi_arbol.raiz = mi_arbol.eliminar(mi_arbol.raiz,"archivo101.bpm")
+
   
   ruta_bike = os.path.join("data", "bike")
   ruta_cars = os.path.join("data", "cars")
@@ -86,3 +83,15 @@ if __name__ == "__main__":
         print(f"- Nombre: {nodo.nombre}, Ruta: {nodo.ruta}, Hash: {nodo.id_hash}, size: {nodo.size}")
   else:
     print(f"No se encontraron nodos de tipo '{tipo_a_buscar}' y de tamaño {nodo.size} Bytes.")
+
+
+
+
+
+
+
+    mi_arbol.recorrido_por_niveles(mi_arbol.raiz)
+
+
+
+
