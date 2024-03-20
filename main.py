@@ -102,9 +102,10 @@ if __name__ == "__main__":
 
   # mi_arbol.obtener_factor_balanceo(mi_arbol.raiz, "bike_128.bmp" )
 
-  # padre_del_nodo = mi_arbol.encontrar_padre_por_nombre(mi_arbol.raiz, "bike_064.bmp")
-  # print(padre_del_nodo)
 
   # mi_arbol.encontrar_padre(mi_arbol.raiz, "bike_064.bmp")
 
-  mi_arbol.encontrar_abuelo(mi_arbol.raiz, "bike_064.bmp")
+  # mi_arbol.encontrar_abuelo(mi_arbol.raiz, "bike_064.bmp")
+
+
+  mi_arbol.encontrar_tio(mi_arbol.raiz, "bike_032.bmp")

@@ -375,7 +375,7 @@ class arbol:
 
 
 
-  
+
   def encontrar_abuelo(self, raiz, nombre):
         
     if raiz is None:
@@ -393,3 +393,45 @@ class arbol:
       print(f"El nodo abuelo de {nombre} es: {abuelo.nombre}")
     else:
       print(f"{nombre} es la raíz del árbol o su padre no tiene padre.")
+
+
+
+
+  def abuelo(self, raiz, nombre):
+
+    if raiz is None:
+      return None
+            
+    padre = self.padre(raiz, nombre)
+    if padre is None or padre == raiz:
+      return None
+        
+    return self.padre(raiz, padre.nombre)
+
+
+
+
+  def encontrar_tio(self, raiz, nombre):
+
+    if raiz is None:
+      return None
+    
+    abuelo = self.abuelo(raiz, nombre)
+    if abuelo is None:
+      print(f"{nombre} es la raíz del árbol o su padre no tiene padre.")
+      return None
+        
+    padre = self.padre(raiz, nombre)
+    if padre is None:
+      print(f"No se encontró al padre del nodo {nombre}.")
+      return None
+        
+    if padre == abuelo.izquierda:
+      tio = abuelo.derecha
+    else:
+      tio = abuelo.izquierda
+        
+    if tio is not None:
+      print(f"El nodo tío de {nombre} es: {tio.nombre}")
+    else:
+      print(f"{nombre} no tiene tío.")
