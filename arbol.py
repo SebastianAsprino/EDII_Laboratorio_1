@@ -300,6 +300,9 @@ class arbol:
     nivel_derecha = self.encontrar_nivel_del_nodo(raiz.derecha, nombre, nivel_actual + 1)
     return nivel_derecha
 
+
+
+
   def buscar_nodo(self, raiz, nombre):
 
     if raiz is None:
@@ -314,6 +317,7 @@ class arbol:
 
 
 
+
   def factor_balanceo(self, nodo):
 
     if nodo is None:
@@ -324,20 +328,18 @@ class arbol:
     
     
     
+    
   def obtener_factor_balanceo(self, raiz, nombre):
     nodo = self.buscar_nodo(raiz, nombre)
     if nodo is not None:
       return self.factor_balanceo(nodo)
     else:
         return None
-    
 
 
 
 
-
-
-  def encontrar_padre_por_nombre(self, raiz, nombre, padre=None):
+  def encontrar_padre(self, raiz, nombre, padre=None):
 
     if raiz is None:
       return None
@@ -349,6 +351,45 @@ class arbol:
         print(f"{nombre} es la raíz del árbol.")
       return
         
-    self.encontrar_padre_por_nombre(raiz.izquierda, nombre, raiz)
+    self.encontrar_padre(raiz.izquierda, nombre, raiz)
         
-    self.encontrar_padre_por_nombre(raiz.derecha, nombre, raiz)
+    self.encontrar_padre(raiz.derecha, nombre, raiz)
+
+
+
+
+  def padre(self, raiz, nombre, padre=None):
+
+    if raiz is None:
+      return None
+        
+    if raiz.nombre == nombre:
+      return padre
+        
+    nodo_padre_izquierda = self.padre(raiz.izquierda, nombre, raiz)
+    if nodo_padre_izquierda is not None:
+      return nodo_padre_izquierda
+        
+    nodo_padre_derecha = self.padre(raiz.derecha, nombre, raiz)
+    return nodo_padre_derecha
+
+
+
+  
+  def encontrar_abuelo(self, raiz, nombre):
+        
+    if raiz is None:
+      return
+        
+        # Buscar el padre del nodo dado su nombre
+    padre = self.padre(raiz, nombre)
+    if padre is None or padre == raiz:
+      print(f"{nombre} es la raíz del árbol o su padre no tiene padre.")
+      return
+        
+        # Encontrar el abuelo del nodo
+    abuelo = self.padre(raiz, padre.nombre)
+    if abuelo is not None:
+      print(f"El nodo abuelo de {nombre} es: {abuelo.nombre}")
+    else:
+      print(f"{nombre} es la raíz del árbol o su padre no tiene padre.")
