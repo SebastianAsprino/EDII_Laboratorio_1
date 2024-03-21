@@ -29,7 +29,7 @@ class FullScreenApp:
       title_label.pack(side='left', padx=5, pady=5)
       
       buttons = [
-          ("Insertar", self.insert_node),
+          ("Mostrar", self.insert_node),
           ("Eliminar", self.delete_node),
           ("Buscar", self.search_node),
           ("Buscar por criterios", self.search_by_criteria),
