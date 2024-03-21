@@ -1,4 +1,5 @@
 import os
+import graphviz
 from arbol import arbol
 from hash import generar_hash_archivo
 from size import tamano_archivo
@@ -147,3 +148,12 @@ if __name__ == "__main__":
 
   print("llamo al metodo .encontrar_tio el cual recibe raiz y el nombre del nodo que se sabra cual es su tio:")
   mi_arbol.encontrar_tio(mi_arbol.raiz, "bike_032.bmp")
+
+
+
+  dot = graphviz.Digraph()
+  mi_arbol.print_avl_tree(mi_arbol.raiz, dot)
+ 
+  
+  dot.render('avl_tree', format='png', cleanup=True)
+  dot.view()
