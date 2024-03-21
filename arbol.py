@@ -1,4 +1,4 @@
-from collections import deque
+import graphviz
 from nodo import nodo
 
 ## Definición del módulo arbol
@@ -205,10 +205,10 @@ class arbol:
     """
     if raiz is None:
         print("El nodo no existe")
-        return None
+        return "El nodo no existe"
     elif nombre == raiz.nombre:
-        print(f"El nodo {nombre} con ruta en data: {raiz.ruta} y hash {raiz.id_hash} existe.")
-        return raiz
+        respuesta = f"El nodo {nombre} con ruta en data: {raiz.ruta} y hash {raiz.id_hash} existe."
+        return respuesta
     elif nombre < raiz.nombre:
         return self.buscar_por_nombre(raiz.izquierda, nombre)
     else:
@@ -435,3 +435,18 @@ class arbol:
       print(f"El nodo tío de {nombre} es: {tio.nombre}")
     else:
       print(f"{nombre} no tiene tío.")
+
+
+
+  def print_avl_tree(self, raiz, dot, parent_label=None, direction=None):
+    if raiz is not None:
+      if parent_label is not None:
+        dot.node(str(raiz.nombre), str(raiz.nombre))
+        if direction == 'left':
+          dot.edge(parent_label, str(raiz.nombre), label='L')
+        elif direction == 'right':
+                    dot.edge(parent_label, str(raiz.nombre), label='R')
+      if raiz.izquierda is not None:
+        self.print_avl_tree(raiz.izquierda, dot, str(raiz.nombre), 'left')
+      if raiz.derecha is not None:
+        self.print_avl_tree(raiz.derecha, dot, str(raiz.nombre), 'right')
