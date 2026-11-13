@@ -1,29 +1,38 @@
-## Definición del módulo Nodo
-class nodo:
-  """
-  Definición del módulo Nodo.
+"""Definición del nodo del árbol AVL."""
 
-  Esta clase crea el nodo que representa una hoja o rama del árbol.
+from __future__ import annotations
 
-  Atributos:
-    nombre: El nombre del archivo usado para determinar si un archivo es mayor o menor.
-    hash: El hash almacena el md5 del archivo.
-    ruta: La ruta del archivo.
-    altura: La altura del nodo en el arbol.
-    izquierda: Referencia al hijo izquierdo del nodo.
-    derecha: Referencia al hijo derecho del nodo.
-  """
-  def __init__(self, nombre, ruta, id_hash, size):
+from typing import Optional
+
+
+class Nodo:
     """
-    Parámetros:
-      nombre: El nombre del archivo.
-      ruta: La ruta del archivo en data.
-      hash: El hash del archivo.
-      """
-    self.nombre = nombre
-    self.ruta = ruta
-    self.id_hash = id_hash
-    self.size = size
-    self.altura = 1
-    self.izquierda = None
-    self.derecha = None
+    Nodo que representa una hoja o rama del árbol AVL.
+
+    Atributos:
+        nombre: Nombre del archivo; es la clave que ordena el árbol.
+        ruta: Ruta del archivo dentro de la carpeta ``data``.
+        id_hash: Hash MD5 del contenido del archivo.
+        size: Tamaño del archivo en bytes.
+        altura: Altura del nodo en el árbol (una hoja tiene altura 1).
+        izquierda: Hijo izquierdo (nombres menores).
+        derecha: Hijo derecho (nombres mayores).
+    """
+
+    def __init__(self, nombre: str, ruta: str, id_hash: str, size: int) -> None:
+        """
+        Crea un nodo hoja.
+
+        Parámetros:
+            nombre: Nombre del archivo.
+            ruta: Ruta del archivo en ``data``.
+            id_hash: Hash MD5 del archivo.
+            size: Tamaño del archivo en bytes.
+        """
+        self.nombre = nombre
+        self.ruta = ruta
+        self.id_hash = id_hash
+        self.size = size
+        self.altura = 1
+        self.izquierda: Optional[Nodo] = None
+        self.derecha: Optional[Nodo] = None

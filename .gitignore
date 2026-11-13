@@ -1,1 +1,18 @@
-__pycache__
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Imágenes del árbol generadas con Graphviz
+salida/
+avl_tree
+avl_tree.png
+*.gv
+
+# Sistema operativo / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
